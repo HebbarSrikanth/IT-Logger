@@ -1,0 +1,47 @@
+{
+  "logs": [
+    {
+      "id": "1",
+      "message": "Changed the desktop in station 51",
+      "attention": "false",
+      "tech": "Leonard",
+      "date": "15-02-2019"
+    },
+    {
+      "id": "2",
+      "message": "Workstation 007 posting",
+      "attention": "false",
+      "tech": "Sheldon Cooper",
+      "date": "03-02-2019"
+    },
+    {
+      "id": "3",
+      "message": "Workstation 075 harddisk confguration issue",
+      "attention": "true",
+      "tech": "Rajesh Kutrapali",
+      "date": "01-02-2019"
+    }
+  ],
+  "techs": [
+    {
+      "id": "1",
+      "firstname": "Sheldon",
+      "lastname": "Cooper"
+    },
+    {
+      "id": "2",
+      "firstname": "Leonard",
+      "lastname": ""
+    },
+    {
+      "id": "1",
+      "firstname": "Rajesh",
+      "lastname": "Kutrapali"
+    },
+    {
+      "firstname": "howard",
+      "lastname": "",
+      "id": "9juebTn"
+    }
+  ]
+}
