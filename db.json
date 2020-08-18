@@ -1,6 +1,5 @@
 {
-  "logs": [
-    {
+  "logs": [{
       "id": "1",
       "message": "Changed the desktop in station 51",
       "attention": "false",
@@ -16,14 +15,13 @@
     },
     {
       "id": "3",
-      "message": "Workstation 075 harddisk confguration issue",
+      "message": "Workstation 075 hard disk confguration issue",
       "attention": "true",
       "tech": "Rajesh Kutrapali",
       "date": "01-02-2019"
     }
   ],
-  "techs": [
-    {
+  "techs": [{
       "id": "1",
       "firstname": "Sheldon",
       "lastname": "Cooper"
