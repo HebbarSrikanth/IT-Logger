@@ -4,6 +4,8 @@ import M from 'materialize-css/dist/js/materialize.min.js'
 import './App.css';
 import Searchbar from './components/layouts/Searchbar';
 import Logs from './components/logs/Logs';
+import Floatbtn from './components/layouts/Floatbtn';
+import AddLogModal from './components/logs/AddLogModal';
 
 const App = () => {
 
@@ -15,7 +17,11 @@ const App = () => {
   return (
     <Fragment>
       <Searchbar />
-      <Logs />
+      <div className='container'>
+        <Floatbtn />
+        <AddLogModal />
+        <Logs />
+      </div>
     </Fragment>
   );
 }
