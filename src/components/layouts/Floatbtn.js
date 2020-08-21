@@ -7,8 +7,8 @@ const Floatbtn = () => {
                 <i className="large material-icons">add</i>
             </a>
             <ul>
-                <li><a href="#tech-list-modal" className="btn-floating red"><i className="material-icons">person</i></a></li>
-                <li><a href="#tech-modal" className="btn-floating yellow darken-1"><i className="material-icons">person_add</i></a></li>
+                <li><a href="#tech-list-modal" className="btn-floating red modal-trigger"><i className="material-icons">person</i></a></li>
+                <li><a href="#add-tech" className="btn-floating yellow darken-1 modal-trigger"><i className="material-icons">person_add</i></a></li>
             </ul>
         </div>
     )
