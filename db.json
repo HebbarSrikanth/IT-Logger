@@ -1,27 +1,22 @@
 {
-  "logs": [{
-      "id": "1",
-      "message": "Changed the desktop in station 51",
+  "logs": [
+    {
+      "message": "Log 1 Fixed",
+      "tech": "Lenoard",
       "attention": "false",
-      "tech": "Leonard",
-      "date": "15-02-2019"
+      "date": "2020-08-23T06:40:57.988Z",
+      "id": 1
     },
     {
-      "id": "2",
-      "message": "Workstation 007 posting",
+      "message": "Log 2 Urgent Fixed ",
+      "tech": "Lenoard",
       "attention": "false",
-      "tech": "Sheldon Cooper",
-      "date": "03-02-2019"
-    },
-    {
-      "id": "3",
-      "message": "Workstation 075 hard disk confguration issue",
-      "attention": "true",
-      "tech": "Rajesh Kutrapali",
-      "date": "01-02-2019"
+      "date": "2020-08-23T06:41:21.579Z",
+      "id": 2
     }
   ],
-  "techs": [{
+  "techs": [
+    {
       "id": "1",
       "firstname": "Sheldon",
       "lastname": "Cooper"

@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import M from 'materialize-css/dist/js/materialize.min.js'
+import { addLog } from '../../actions/logAction'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-const AddLogModal = () => {
+
+const AddLogModal = ({ addLog }) => {
 
     const [state, setState] = useState({
         message: '',
@@ -21,7 +25,10 @@ const AddLogModal = () => {
         if (state.message === '' || state.tech === '') {
             M.toast({ html: 'Message and Technician Name is mandatory' })
         } else {
-            console.log(state)
+            addLog({
+                ...state,
+                date: new Date()
+            })
             setState({
                 message: '',
                 tech: '',
@@ -76,4 +83,8 @@ const AddLogModal = () => {
     )
 }
 
-export default AddLogModal
+AddLogModal.prototype = {
+    addLog: PropTypes.func.isRequired
+}
+
+export default connect(null, { addLog })(AddLogModal)

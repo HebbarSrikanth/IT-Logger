@@ -1,31 +1,44 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import M from 'materialize-css/dist/js/materialize.min.js'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { updateLog } from '../../actions/logAction'
 
-const EditLogModal = () => {
-    const [state, setState] = useState({
-        message: '',
-        tech: '',
-        attention: false
-    })
 
-    const handleChange = e => {
-        setState({
-            ...state,
-            [e.target.name]: e.target.value
-        })
-    }
+const EditLogModal = ({ curr, updateLog }) => {
+
+    const [message, setMessage] = useState('')
+    const [tech, setTech] = useState('')
+    const [attention, setAttention] = useState(false)
+
+
+    useEffect(() => {
+        if (curr) {
+            setMessage(curr.message)
+            setTech(curr.tech)
+            curr.attention = curr.attention === 'true' ? true : false
+            setAttention(curr.attention)
+        }
+        //eslint-disable-next-line
+    }, [curr])
 
     const handleSubmit = () => {
 
-        if (state.message === '' || state.tech === '') {
+        if (message === '' || tech === '') {
             M.toast({ html: 'Message and Technician Name is mandatory' })
         } else {
-            console.log(state)
-            setState({
-                message: '',
-                tech: '',
-                attention: false
+            //console.log(attention)
+            updateLog({
+                message,
+                tech,
+                attention: attention === true ? 'true' : 'false',
+                date: new Date(),
+                id: curr.id
             })
+            //Clear fields
+            setMessage('')
+            setTech('')
+            setAttention(false)
         }
     }
 
@@ -35,17 +48,15 @@ const EditLogModal = () => {
                 <h4 style={{ textAlign: 'center' }}>Edit Log</h4>
                 <div className='row'>
                     <div className='input-field'>
-                        <input type='text' name='message' value={state.message} onChange={handleChange} />
-                        <label htmlFor='message'>Log Message</label>
+                        <input type='text' value={message} onChange={e => setMessage(e.target.value)} />
                     </div>
                 </div>
                 <div className='row'>
                     <div className="input-field">
                         <select
-                            name='tech'
                             className='browser-default'
-                            value={state.tech}
-                            onChange={handleChange}
+                            value={tech}
+                            onChange={e => setTech(e.target.value)}
                         >
                             <option value='' disabled>Select Technician</option>
                             <option value='Lenoard'>Lenoard</option>
@@ -57,11 +68,12 @@ const EditLogModal = () => {
                 <div className='row'>
                     <div className='input-field'>
                         <label>
-                            <input type="checkbox"
-                                name='attention'
-                                onChange={handleChange}
-                                value={!state.attention}
+                            <input
+                                type='checkbox'
                                 className='filled-in'
+                                checked={attention}
+                                value={attention}
+                                onChange={e => setAttention(!attention)}
                             />
                             <span><b>Attention</b></span>
                         </label>
@@ -75,4 +87,13 @@ const EditLogModal = () => {
     )
 }
 
-export default EditLogModal
+EditLogModal.prototype = {
+    curr: PropTypes.object.isRequired,
+    updateLog: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+    curr: state.logs.current
+})
+
+export default connect(mapStateToProps, { updateLog })(EditLogModal)
