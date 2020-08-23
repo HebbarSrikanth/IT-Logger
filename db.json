@@ -17,24 +17,14 @@
   ],
   "techs": [
     {
-      "id": "1",
-      "firstname": "Sheldon",
-      "lastname": "Cooper"
+      "firstname": "Tech ",
+      "lastname": "1",
+      "id": 1
     },
     {
-      "id": "2",
-      "firstname": "Leonard",
-      "lastname": ""
-    },
-    {
-      "id": "3",
-      "firstname": "Rajesh",
-      "lastname": "Kutrapali"
-    },
-    {
-      "id": "9juebTn",
-      "firstname": "howard",
-      "lastname": ""
+      "firstname": "Tech ",
+      "lastname": "2",
+      "id": 2
     }
   ]
 }

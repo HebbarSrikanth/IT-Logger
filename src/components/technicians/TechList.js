@@ -1,44 +1,24 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import TechItem from './TechItem'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import { fetchTech } from '../../actions/techAction'
 
-const TechList = () => {
-
-    const [state, setState] = useState({
-        techs: [],
-        loading: false
-    })
+const TechList = ({ tech, fetchTech }) => {
 
     useEffect(() => {
-        getTechs()
+        fetchTech()
         //eslint-disable-next-line
     }, [])
 
-    const getTechs = async () => {
-        //Set loading to true as it has to fetch the data
-        setState({
-            ...state,
-            loading: true
-        })
-
-        //Fetch the data from the backend server
-        const res = await fetch('/techs')
-        const data = await res.json();
-
-        //Once the data is received then ,set log to logs and loading to false
-        setState({
-            ...state,
-            techs: data,
-            loading: false
-        })
-    }
 
     return (
         <div className='modal' id='tech-list-modal' style={{ height: 'auto' }}>
             <div className='modal-content'>
                 <h4 style={{ textAlign: 'center' }}>Technicians List</h4>
                 <ul className='collection'>
-                    {!state.loading && state.techs.length === 0 ? (<h4>No Technicians....</h4>) : (
-                        state.techs.map(tech => <TechItem key={tech.id} tech={tech} />)
+                    {!tech.loading && tech.techs.length === 0 ? (<h6 style={{ textAlign: 'center' }} >No Technicians....</h6>) : (
+                        tech.techs.map(tech => <TechItem key={tech.id} tech={tech} />)
                     )}
                 </ul>
             </div>
@@ -46,4 +26,13 @@ const TechList = () => {
     )
 }
 
-export default TechList
+TechList.prototype = {
+    tech: PropTypes.object.isRequired,
+    fetchTech: PropTypes.func.isRequired
+}
+
+const mapStateToProps = state => ({
+    tech: state.tech
+})
+
+export default connect(mapStateToProps, { fetchTech })(TechList)
