@@ -1,17 +1,17 @@
 {
   "logs": [
     {
-      "message": "Log 1 Fixed",
-      "tech": "Lenoard",
-      "attention": "false",
-      "date": "2020-08-23T06:40:57.988Z",
+      "message": "Log 1 Fixed critical",
+      "tech": "Sheldon Cooper",
+      "attention": "true",
+      "date": "2020-08-23T07:29:46.166Z",
       "id": 1
     },
     {
-      "message": "Log 2 Urgent Fixed ",
+      "message": "Log 2 Urgent",
       "tech": "Lenoard",
       "attention": "false",
-      "date": "2020-08-23T06:41:21.579Z",
+      "date": "2020-08-23T07:29:13.645Z",
       "id": 2
     }
   ],

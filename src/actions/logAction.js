@@ -117,3 +117,24 @@ export const currentUser = log => {
         payload: log
     }
 }
+
+//Search 
+export const searchLog = searchText => async dispatch => {
+    try {
+        setLoding()
+
+        const res = await fetch('/logs?q=' + searchText)
+        const data = await res.json()
+
+        dispatch({
+            type: types.SEARCH_LOG,
+            payload: data
+        })
+
+    } catch (err) {
+        dispatch({
+            type: types.SET_LOGERROR,
+            payload: err.response.data
+        })
+    }
+}

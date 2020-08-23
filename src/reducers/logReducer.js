@@ -52,6 +52,12 @@ export default (state = initialState, action) => {
                 current: action.payload
             }
 
+        case types.SEARCH_LOG:
+            return {
+                ...state,
+                logs: action.payload
+            }
+
         default: return state
     }
 }
